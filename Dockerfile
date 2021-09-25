@@ -11,4 +11,12 @@ COPY poco_install.sh /poco/
 WORKDIR /poco
 RUN /poco/poco_install.sh
 
+RUN mkdir -p /glog
+WORKDIR /glog
+RUN git clone https://github.com/google/glog.git && \
+cd glog && \
+cmake -S . -B build -G "Unix Makefiles" && \
+cmake --build build && \
+cmake --build build --target install
+
 WORKDIR /
