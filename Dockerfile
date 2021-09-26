@@ -18,5 +18,6 @@ cd glog && \
 cmake -S . -B build -G "Unix Makefiles" && \
 cmake --build build && \
 cmake --build build --target install
+RUN apt-get install -y libgtest-dev
 
 WORKDIR /
